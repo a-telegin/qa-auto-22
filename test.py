@@ -2,6 +2,9 @@
 
 class Printer(str):
     def __init__(self, hellostring):
+        if not hellostring:
+            hellostring = ""
+        
         self.__setstr(hellostring)
 
     def __setstr(self, string_to_set):
