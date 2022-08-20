@@ -1,6 +1,7 @@
 from providers.data.users_providers import UsersProvider
 import requests
 import pytest
+# import os
 
 
 def test_http_status_code_200(github_api_client):
@@ -24,4 +25,9 @@ def test_user_non_exist(github_api_client):
     with pytest.raises(requests.exceptions.HTTPError):
         github_api_client.get_user(user['login'])
 
+# def test_user_from_env(github_api_client):
+#     user = UsersProvider.existing_user_from_env()
+#     api_user = github_api_client.get_user(user['login'])
 
+#     assert api_user['login'] == 'defunkt'
+#     assert api_user['id'] == 2
